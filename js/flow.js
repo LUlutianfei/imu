@@ -16,14 +16,13 @@ function waterfall(parent, pin) {
 	var oParent = document.getElementById(parent); // 父级对象
 	var aPin = getClassObj(oParent, pin); // 获取存储块框pin的数组aPin
 	var iPinW = aPin[0].offsetWidth; // 一个块框pin的宽
-	var num = Math.floor(document.documentElement.clientWidth / iPinW) - 1; //每行中能容纳的pin个数【窗口宽度除以一个块框宽度】
+	var num = Math.floor(document.documentElement.clientWidth / iPinW)-1; //每行中能容纳的pin个数【窗口宽度除以一个块框宽度】
 	if (num == 0) {
 		num = 1;
 	}
 	oParent.style.cssText = 'width:' + iPinW * num + 'px;margin:0 auto;'; //设置父级居中样式：定宽+自动水平外边距
 
 
-	console.log(num);
 	var pinHArr = []; //用于存储 每列中的所有块框相加的高度。
 	for (var i = 0; i < aPin.length; i++) { //遍历数组aPin的每个块框元素
 		var pinH = aPin[i].offsetHeight;
